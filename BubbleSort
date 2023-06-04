@@ -1,0 +1,56 @@
+//Bubble Sort Code here----------------------------------Optimized-----------O(n2)
+
+let ar = [62, 34, 2, 454, 324, 56, 7];
+let ar_size = ar.length;
+
+function bubbleSort(ar, ttl) {
+  let swapped;
+  do {
+    swapped = false;
+    console.warn(ar);
+    for (let i = 0; i < ttl - 1; i++) {
+      if (ar[i] < ar[i + 1]) {
+        [ar[i], ar[i + 1]] = [ar[i + 1], ar[i]];
+        swapped = true;
+      }
+    }
+    ttl--;
+  } while (swapped);
+}
+
+bubbleSort(ar, ar_size);
+console.log(ar);
+
+
+//*****************Bubble Sort Recurssion Code here----------------------------****************************-O(n2)
+
+let ar = [62, 34, 2, 454, 324, 56, 7];
+let ar_size = ar.length;
+
+function bubbleSort(ar, ttl) {
+  let sorted = true;
+  console.warn(ar);
+  for (let i = 0; i < ttl - 1; i++) {
+    if (ar[i] < ar[i + 1]) {
+      [ar[i], ar[i + 1]] = [ar[i + 1], ar[i]];
+      sorted = false;
+    }
+  }
+  
+  if (!sorted) {
+    bubbleSort(ar, ttl - 1);
+  }
+}
+
+bubbleSort(ar, ar_size);
+console.log(ar);
+
+
+
+//OUTPUT:
+ [62, 34, 2, 454, 324, 56, 7]
+ [62, 34, 454, 324, 56, 7, 2]
+ [62, 454, 324, 56, 34, 7, 2]
+ [454, 324, 62, 56, 34, 7, 2]
+ [454, 324, 62, 56, 34, 7, 2]
+
